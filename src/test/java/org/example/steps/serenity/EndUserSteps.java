@@ -21,15 +21,15 @@ public class EndUserSteps {
     }
 
     @Step
-    public void enterMyEpicCredentialsAndEpiclyPressSignInButton() {
-        mainPage.username.type("123123");
-        mainPage.password.type("LP9A1b2hahpLd0B"); // dont steal pls
+    public void enterMyEpicCredentialsAndEpiclyPressSignInButton(String username, String password) {
+        mainPage.username.type(username);
+        mainPage.password.type(password); // dont steal pls
         mainPage.signInButton.click();
     }
 
     @Step
-    public void ensureTheSiteIsPolite() {
-        assertThat(mainPage.welcomeMessage.getText(), is(equalTo("Welcome Skibidi!")));
+    public void ensureTheSiteIsPolite(String firstname) {
+        assertThat(mainPage.welcomeMessage.getText(), is(equalTo("Welcome " + firstname + "!")));
     }
 
     @Step
